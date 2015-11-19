@@ -212,5 +212,8 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 #add by lin
-.zip
-.pdf
+BundleArtifacts/
+*.zip
+*.pdf
+^_.*$
+*.appx

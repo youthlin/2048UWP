@@ -1,2 +1,0 @@
-MainPackage=D:\users\lin\documents\visual studio 2015\Projects\2048 UWP\2048 UWP\bin\x64\Release\2048 UWP_1.1.3.0_x64.appx
-SymbolPackage=D:\users\lin\documents\visual studio 2015\Projects\2048 UWP\2048 UWP\AppPackages\2048 UWP_1.1.3.0\2048 UWP_1.1.3.0_x64.appxsym

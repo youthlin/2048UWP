@@ -1,4 +1,4 @@
-# 2048UWP
+﻿# 2048UWP
 2048 UWP : Play the game "2048" at your Windows 10 devices.  
 2048 UWP ：在所有WIndows 10设备上玩2048小游戏。  
 
@@ -27,10 +27,10 @@ swipe screen or use your keyboard (<LEFT><RIGHT><UP><DOWN> or WSAD or hjkl) to m
 Version: 1.0.  
 
 Bugs：
-*the review button doesn't work
-*some times the last block will keep blank while the game is over.  
+* the review button doesn't work
+* some times the last block will keep blank while the game is over.  
 
 Todo:
-*change the review uri to ms-windows-store://review/?ProductId=XXX
-*fix the last block bug
-*share to friends
+* change the review uri to ms-windows-store://review/?ProductId=XXX
+* fix the last block bug
+* share to friends

@@ -14,13 +14,15 @@ swipe screen or use your keyboard (<LEFT><RIGHT><UP><DOWN> or WSAD or hjkl) to m
 版本：1.0.  
 
 已知Bug:
-*评价按钮不可用
-*有时最后一个方块不出现数字但却提示游戏结束
 
-接下来：
-*使评价按钮可以正常工作，使用协议“ ms-windows-store://review/?ProductId=XXX ”.  
-*解决最后一个数字块问题
-*增加社会化分享
+* 评价按钮不可用
+* 有时最后一个方块不出现数字但却提示游戏结束
+
+接下来:
+
+* 使评价按钮可以正常工作，使用协议“ ms-windows-store://review/?ProductId=XXX ”.  
+* 解决最后一个数字块问题
+* 增加社会化分享
 
 Version: 1.0.  
 

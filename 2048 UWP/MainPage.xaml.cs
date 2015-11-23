@@ -526,8 +526,7 @@ namespace _2048_UWP
             {
                 //https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.applicationmodel.store.currentapp.aspx
                 //AppID要在上架后才有
-                var suc = await Windows.System.Launcher.LaunchUriAsync(new Uri("zune:reviewapp?appid=app" + Windows.ApplicationModel.Store.CurrentApp.AppId));
-                if (suc) { Debug.WriteLine("Success"); } else { Debug.WriteLine("Failed"); }
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9NBLGGH68BB0"));
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
         }

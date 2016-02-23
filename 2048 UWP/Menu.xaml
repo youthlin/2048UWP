@@ -1,0 +1,86 @@
+﻿<Page
+    x:Class="_2048_UWP.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2048_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource accent}">
+    <Grid Background="{ThemeResource bg}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="501"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="split.DisplayMode" Value="CompactInline"/>
+                        <Setter Target="split.IsPaneOpen" Value="true"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="split.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="split.IsPaneOpen" Value="false"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView x:Name="split" DisplayMode="CompactOverlay" CompactPaneLength="45" OpenPaneLength="130">
+            <SplitView.Pane>
+                <Grid Background="{ThemeResource accent}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <Button  Height="48" Background="Transparent" Click="Button_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" 
+                                           FontSize="24" VerticalAlignment="Center" Foreground="{ThemeResource txt}"/>
+                                <TextBlock x:Uid="menu" Text="菜单" FontSize="24" Foreground="{ThemeResource txt}"
+                                           VerticalAlignment="Center" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <!--Segoe MDL2 图标指南
+                    https://msdn.microsoft.com/zh-cn/library/windows/apps/jj841126.aspx-->
+
+                    <StackPanel  Grid.Row="1">
+                        <ListView x:Name="list1" SelectionMode="Single" SelectionChanged="list_SelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <SymbolIcon Symbol="{Binding Icon}" Foreground="{ThemeResource txt}"/>
+                                        <TextBlock Text="{Binding Title}" Margin="24,0,0,0" 
+                                                   VerticalAlignment="Center"  Foreground="{ThemeResource txt}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <MenuFlyoutSeparator/>
+                        <ListView x:Name="list2" SelectionMode="Single" SelectionChanged="list_SelectionChanged">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <SymbolIcon Symbol="{Binding Icon}" Foreground="{ThemeResource txt}"/>
+                                        <TextBlock Text="{Binding Title}" Margin="24,0,0,0" 
+                                                   VerticalAlignment="Center" Foreground="{ThemeResource txt}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+
+                </Grid>
+            </SplitView.Pane>
+            <Frame x:Name="frame"></Frame>
+        </SplitView>
+    </Grid>
+</Page>

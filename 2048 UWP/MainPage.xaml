@@ -6,144 +6,135 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="Orange"
-    Foreground="White"
-    KeyUp="Page_KeyUp"
-    SizeChanged="Page_SizeChanged" >
+    SizeChanged="Page_SizeChanged" KeyUp="Page_KeyUp"
+    Background="{ThemeResource accent}">
 
-    <Grid Background="#faf8ef" x:Name="page">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!--用于占位，获取键盘焦点！机智如我，高宽为0不可见-->
-        <Button x:Name="btn" Background="Transparent" Width="0" Height="0"></Button>
-
-        <!--Header-->
-        <Grid Grid.Row="0" Margin="12,17,0,28" x:Name="header">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <!--LOGO-->
-            <!--因为TextBlock无法设置背景色,所以用StackPanel包围-->
-            <StackPanel  x:Name="logo" Background="Orange" Height="100">
-                <!--为了使TextBlock居中所以用了Grid包围,然后设置TextBlock的VerticalAlignment-->
-                <Grid Width="100" Height="100">
-                    <TextBlock x:Name="logof" Text="2048" FontSize="44"  FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Grid>
-            </StackPanel>
-            <!--end LOGO-->
-            <!--分数-->
-            <Grid Grid.Column="1" Margin="15,5,5,5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <!--SCORE-->
-                <Grid Grid.Column="0" Padding="5,0">
-                    <StackPanel  Background="DarkOrange" x:Name="scoreb">
-                        <Grid Width="80" Height="40">
-                            <TextBlock x:Name="score0" Text="SCORE" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        <Grid Width="80" Height="40">
-                            <TextBlock x:Name="score" Text="0" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-                <!--end SCORE-->
-                <!--BEST-->
-                <Grid Grid.Column="1" Padding="5,0">
-                    <StackPanel  Background="DarkOrange" x:Name="bestb">
-                        <Grid Width="80" Height="40">
-                            <TextBlock x:Name="best0" Text="BEST" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                        <Grid Width="80" Height="40">
-                            <TextBlock x:Name="best" Text="0" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-                <!--end BEST-->
+    <StackPanel Orientation="Vertical" Background="{ThemeResource bg}" x:Name="wrap"
+                HorizontalAlignment="Center" VerticalAlignment="Center">        
+        <!--header-->
+        <StackPanel Orientation="Horizontal" x:Name="header" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Background="{ThemeResource accent}" x:Name="logo"
+                  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="2048" FontSize="40" FontWeight="Bold" Foreground="White"/>
+                </StackPanel>
             </Grid>
-            <!--end 分数-->
-        </Grid>
-        <!--end HEADER-->
-
-        <!--Main-->
-        <Grid Grid.Row="1" x:Name="bigmain" ManipulationMode="All">
-            <Border x:Name="border" Background="#BEAFA0" CornerRadius="5" Margin="5" Padding="5">
-                <Grid  x:Name="main">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="headerRight">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="headergrid" Margin="5">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-
-                    <local:Tile x:Name="b00"  Number="0" Grid.Row="0" Grid.Column="0"></local:Tile>
-                    <local:Tile x:Name="b01"  Number="0" Grid.Row="0" Grid.Column="1"></local:Tile>
-                    <local:Tile x:Name="b02"  Number="0" Grid.Row="0" Grid.Column="2"></local:Tile>
-                    <local:Tile x:Name="b03"  Number="0" Grid.Row="0" Grid.Column="3"></local:Tile>
-
-                    <local:Tile x:Name="b10"  Number="0" Grid.Row="1" Grid.Column="0"></local:Tile>
-                    <local:Tile x:Name="b11"  Number="0" Grid.Row="1" Grid.Column="1"></local:Tile>
-                    <local:Tile x:Name="b12"  Number="0" Grid.Row="1" Grid.Column="2"></local:Tile>
-                    <local:Tile x:Name="b13"  Number="0" Grid.Row="1" Grid.Column="3"></local:Tile>
-
-                    <local:Tile x:Name="b20"  Number="0" Grid.Row="2" Grid.Column="0"></local:Tile>
-                    <local:Tile x:Name="b21"  Number="0" Grid.Row="2" Grid.Column="1"></local:Tile>
-                    <local:Tile x:Name="b22"  Number="0" Grid.Row="2" Grid.Column="2"></local:Tile>
-                    <local:Tile x:Name="b23"  Number="0" Grid.Row="2" Grid.Column="3"></local:Tile>
-
-                    <local:Tile x:Name="b30"  Number="0" Grid.Row="3" Grid.Column="0"></local:Tile>
-                    <local:Tile x:Name="b31"  Number="0" Grid.Row="3" Grid.Column="1"></local:Tile>
-                    <local:Tile x:Name="b32"  Number="0" Grid.Row="4" Grid.Column="2"></local:Tile>
-                    <local:Tile x:Name="b33"  Number="0" Grid.Row="4" Grid.Column="3"></local:Tile>
-
-                </Grid>
-            </Border>
-        </Grid>
-        <!--end Main-->
-    </Grid>
-
-
-    <!--底部命令栏-->
-    <Page.BottomAppBar>
-        <CommandBar x:Name="commandBar" Background="Orange">
-            <AppBarButton Icon="Refresh" Label="重新开始" ToolTipService.ToolTip="NewGame" x:Name="New" Click="NewGame_Click"></AppBarButton>
-            <AppBarToggleButton x:Name="darkmode" IsChecked="False" Icon="View" Label="夜间模式" Checked="AppBarToggleButton_Checked"
-                                Unchecked="AppBarToggleButton_Unchecked"  ToolTipService.ToolTip="DarkMode"></AppBarToggleButton>
-            <AppBarButton Icon="Help" Label="帮助关于" ToolTipService.ToolTip="Help&amp;About">
-                <AppBarButton.Flyout>
-                    <Flyout>
-                        <StackPanel>
-                            <TextBlock TextWrapping="WrapWholeWords" LineHeight="10">
-                                    2048 UWP 版 1.0 ☃<LineBreak/>
-                                    © 2015 @Youth.霖<LineBreak/>
-                                    玩法:<LineBreak/>
-                                    触摸屏幕滑动方块以合并相同的数字<LineBreak/>
-                                    (电脑版可用键盘)<LineBreak/>
-                                    不足:<LineBreak/>
-                                    暂无分享功能:( 🙈<LineBreak/>
-                                    帮助:<LineBreak/>
-                                    如果您正使用键盘,按下Tab键可能会使游戏<LineBreak/>
-                                    失去键盘焦点,这时使用Tab键将焦点重新<LineBreak/>
-                                    转移到游戏区即可继续游戏.<LineBreak/>点击本浮出面板之外的任意位置可隐藏本面板.<LineBreak/>
-                                    第一次提交应用,有任何意见或建议欢迎反馈😊
-                            </TextBlock>
-                            <HyperlinkButton NavigateUri="http://youthlin.com/?p=1112" Content="点此反馈 (作者博客)"></HyperlinkButton>
+                    <Grid Background="{ThemeResource accent}" x:Name="scoregrid"
+                          Grid.Row="0" Grid.Column="0" Margin="3">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Uid="score" Text="SCORE" x:Name="scoretxt" Foreground="{ThemeResource txt}"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <TextBlock Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               FontWeight="Bold" x:Name="score" Foreground="{ThemeResource txt}"/>
                         </StackPanel>
-                    </Flyout>
-                </AppBarButton.Flyout>
-            </AppBarButton>
-            <AppBarButton Icon="Like" Label="好评" Click="AppBarButton_Like_Click" ToolTipService.ToolTip="CommentOnStore"/>
-        </CommandBar>
-    </Page.BottomAppBar>
+                    </Grid>
+
+                    <Grid Background="{ThemeResource accent}" x:Name="bestgrid"
+                  Grid.Row="0" Grid.Column="1" Margin="3">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Uid="best" Text="BEST" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               x:Name="besttxt" Foreground="{ThemeResource txt}"/>
+                            <TextBlock Text="0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               FontWeight="Bold" x:Name="best" Foreground="{ThemeResource txt}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid  Margin="3" Grid.Row="1" Grid.Column="0" PointerEntered="menugrid_PointerEntered"
+                  Background="{ThemeResource accent}" x:Name="menugrid" Tapped="menugrid_Tapped">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Uid="menu" x:Name="menutxt" Text="Menu"  Foreground="{ThemeResource txt}"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Margin="3" Grid.Row="1" Grid.Column="1" PointerEntered="newgrid_PointerEntered"
+                  Background="{ThemeResource accent}" Tapped="newgrid_Tapped" x:Name="newgrid">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Uid="new" x:Name="newtxt" Text="New"  Foreground="{ThemeResource txt}"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <!--header end-->
+
+        <!--Main-->
+        <StackPanel x:Name="footer">
+            <Grid ManipulationMode="All" x:Name="bigmain">
+                <Border  x:Name="border" Background="#BEAFA0" CornerRadius="5" 
+                         Margin="5" Padding="5"  ManipulationMode="All">
+                    <Grid  x:Name="main">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btn" Height="0" Width="0">
+                            <Flyout>
+                                <TextBlock Text="Tab"/>
+                            </Flyout>
+                        </Button>
+                        <local:Tile  Number="0" Grid.Row="0" Grid.Column="0"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="0" Grid.Column="1"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="0" Grid.Column="2"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="0" Grid.Column="3"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="1" Grid.Column="0"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="1" Grid.Column="1"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="1" Grid.Column="2"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="1" Grid.Column="3"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="2" Grid.Column="0"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="2" Grid.Column="1"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="2" Grid.Column="2"></local:Tile>
+                        <local:Tile  Number="0" Grid.Row="2" Grid.Column="3"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="3" Grid.Column="0"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="3" Grid.Column="1"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="4" Grid.Column="2"></local:Tile>
+                        <local:Tile   Number="0" Grid.Row="4" Grid.Column="3"></local:Tile>
+
+                        <local:Tile x:Name="b00"  Number="0" Grid.Row="0" Grid.Column="0"></local:Tile>
+                        <local:Tile x:Name="b01"  Number="0" Grid.Row="0" Grid.Column="1"></local:Tile>
+                        <local:Tile x:Name="b02"  Number="0" Grid.Row="0" Grid.Column="2"></local:Tile>
+                        <local:Tile x:Name="b03"  Number="0" Grid.Row="0" Grid.Column="3"></local:Tile>
+
+                        <local:Tile x:Name="b10"  Number="0" Grid.Row="1" Grid.Column="0"></local:Tile>
+                        <local:Tile x:Name="b11"  Number="0" Grid.Row="1" Grid.Column="1"></local:Tile>
+                        <local:Tile x:Name="b12"  Number="0" Grid.Row="1" Grid.Column="2"></local:Tile>
+                        <local:Tile x:Name="b13"  Number="0" Grid.Row="1" Grid.Column="3"></local:Tile>
+
+                        <local:Tile x:Name="b20"  Number="0" Grid.Row="2" Grid.Column="0"></local:Tile>
+                        <local:Tile x:Name="b21"  Number="0" Grid.Row="2" Grid.Column="1"></local:Tile>
+                        <local:Tile x:Name="b22"  Number="0" Grid.Row="2" Grid.Column="2"></local:Tile>
+                        <local:Tile x:Name="b23"  Number="0" Grid.Row="2" Grid.Column="3"></local:Tile>
+
+                        <local:Tile x:Name="b30"  Number="0" Grid.Row="3" Grid.Column="0"></local:Tile>
+                        <local:Tile x:Name="b31"  Number="0" Grid.Row="3" Grid.Column="1"></local:Tile>
+                        <local:Tile x:Name="b32"  Number="0" Grid.Row="4" Grid.Column="2"></local:Tile>
+                        <local:Tile x:Name="b33"  Number="0" Grid.Row="4" Grid.Column="3"></local:Tile>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </StackPanel>
+        <!--end Main-->
+    </StackPanel>
+
 </Page>

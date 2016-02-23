@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    d:DesignHeight="100"
+    d:DesignWidth="100"
     Background="#776e65">
 
     <Grid>
@@ -27,7 +27,7 @@
         <!--https://github.com/levmixali4/2048WP/blob/master/2048WP/CustomControls/Tile.xaml-->
         <Border x:Name="TileBorder" CornerRadius="5" Background="DarkBlue" Margin="5">
             <Border.RenderTransform>
-                <ScaleTransform x:Name="scl1"/>
+                <ScaleTransform x:Name="scl1" CenterX="50" CenterY="50"/>
             </Border.RenderTransform>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock x:Name="TileText" Text="0"  

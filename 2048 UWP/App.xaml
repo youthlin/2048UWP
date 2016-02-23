@@ -4,5 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:_2048_UWP"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <SolidColorBrush x:Key="accent" Color="Orange"/>
+        <SolidColorBrush x:Key="bg" Color="Gray"/>
+        <SolidColorBrush x:Key="txt" Color="Black"/>
+    </Application.Resources>
 </Application>

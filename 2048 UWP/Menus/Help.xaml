@@ -1,0 +1,136 @@
+﻿<Page
+    x:Class="_2048_UWP.Menus.Help"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2048_UWP.Menus"
+    xmlns:app="using:_2048_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource accent}">
+    <FlipView Background="{ThemeResource bg}" >
+        <RelativePanel>
+            <TextBlock RelativePanel.AlignTopWithPanel="True" x:Name="h1" x:Uid="tip01"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="{ThemeResource txt}"
+                       FontSize="20" TextWrapping="Wrap" Margin="0,30" Text="滑动屏幕或使用键盘以移动所有方块"/>
+
+            <Border Background="#BEAFA0" CornerRadius="5" Margin="0,40"
+                    Height="235" Width="235" RelativePanel.Below="h1"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Grid  x:Name="main">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <app:Tile  Number="0" Grid.Row="0" Grid.Column="0"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="0" Grid.Column="1"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="0" Grid.Column="2"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="0" Grid.Column="3"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="1" Grid.Column="0"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="1" Grid.Column="1"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="1" Grid.Column="2"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="1" Grid.Column="3"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="2" Grid.Column="0"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="2" Grid.Column="1"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="2" Grid.Column="2"></app:Tile>
+                    <app:Tile  Number="0" Grid.Row="2" Grid.Column="3"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="3" Grid.Column="0"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="3" Grid.Column="1"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="4" Grid.Column="2"></app:Tile>
+                    <app:Tile   Number="0" Grid.Row="4" Grid.Column="3"></app:Tile>
+
+                    <Border Background="{ThemeResource accent}" Grid.Row="1" Grid.Column="0" 
+                                    Margin="5" CornerRadius="5"/>
+
+                    <TextBlock Text="←" FontSize="50" Grid.Row="1" Grid.Column="1" 
+                                       Foreground="{ThemeResource accent}" Grid.ColumnSpan="2"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <app:Tile Number="2" Grid.Row="1" Grid.Column="3"/>
+
+                    <Border Background="{ThemeResource accent}" Grid.Row="2" Grid.Column="0" 
+                                    Margin="5" CornerRadius="5"/>
+
+                    <TextBlock Text="←" FontSize="50" Grid.Row="2" Grid.Column="1" 
+                                       Foreground="{ThemeResource accent}" Grid.ColumnSpan="1"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <app:Tile Number="4" Grid.Row="2" Grid.Column="2"/>
+
+                    <Border Background="{ThemeResource accent}" Grid.Row="3" Grid.Column="0" 
+                                    Margin="5" CornerRadius="5"/>
+
+                    <TextBlock Text="←" FontSize="50" Grid.Row="3" Grid.Column="1" 
+                                       Foreground="{ThemeResource accent}" Grid.ColumnSpan="2"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    <app:Tile Number="8" Grid.Row="3" Grid.Column="3"/>
+                </Grid>
+            </Border>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"                       
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Ellipse Fill="{ThemeResource txt}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource accent}"/>
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+            </StackPanel>
+        </RelativePanel>
+        <RelativePanel>
+            <TextBlock Text="当两个数字相同的方块相遇时,就会合并为两数字之和！" x:Name="h3" x:Uid="tip03"
+                       RelativePanel.AlignTopWithPanel="True"  Foreground="{ThemeResource txt}"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       FontSize="20" TextWrapping="Wrap" Margin="20,30"/>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                        RelativePanel.Below="h3" x:Name="h4" Margin="0,80">
+                <app:Tile Width="60" Height="60" Number="2"/>
+                <TextBlock Text="+" FontSize="40" VerticalAlignment="Center"/>
+                <app:Tile Width="60" Height="60" Number="2"/>
+                <TextBlock Text="=" FontSize="40" VerticalAlignment="Center"/>
+                <app:Tile Width="60" Height="60" Number="4"/>
+            </StackPanel>
+            <TextBlock Text="当格子内填满数字，游戏就结束了" x:Uid="tip04" Foreground="{ThemeResource txt}"
+                       RelativePanel.Below="h4" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       FontSize="20" TextWrapping="Wrap" Margin="10"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"                       
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+                <Ellipse Fill="{ThemeResource txt}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource accent}"/>
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+            </StackPanel>
+        </RelativePanel>
+        <RelativePanel>
+            <TextBlock Text="游戏目标是获得2048方块！" x:Uid="tip05" Foreground="{ThemeResource txt}"
+                       RelativePanel.AlignTopWithPanel="True" x:Name="h5" 
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       FontSize="20" TextWrapping="Wrap" Margin="0,30"/>
+            <app:Tile Width="180" Height="180" Number="2048" x:Name="h6"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      RelativePanel.Below="h5" Margin="0,50"/>
+            <Button Content="开始" Click="Button_Click"  Width="100" Height="50" x:Uid="start"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="{ThemeResource txt}"
+                    RelativePanel.Below="h6" FontSize="25" Background="{ThemeResource accent}"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"                       
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True">
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+                <Ellipse Fill="{ThemeResource bg}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource txt}"/>
+                <Ellipse Fill="{ThemeResource txt}" Width="10" Height="10" Margin="10" Stroke="{ThemeResource accent}"/>
+            </StackPanel>
+        </RelativePanel>
+    </FlipView>
+
+</Page>

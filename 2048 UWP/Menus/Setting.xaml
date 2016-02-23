@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="_2048_UWP.Menus.Setting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2048_UWP.Menus"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{ThemeResource accent}">
+
+    <StackPanel Background="{ThemeResource bg}">
+        <TextBlock x:Uid="generalSetting" FontSize="35" Height="50" 
+                   Text="常规设置" Margin="5" x:Name="header" Foreground="{ThemeResource txt}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock x:Uid="chooseAccentColor" FontSize="20" Text="强调色" 
+                           Margin="5" x:Name="choosea" Foreground="{ThemeResource txt}"/>
+                <RadioButton GroupName="colora" Margin="5" Height="30" Click="RadioButton_Click" Name="theme" Foreground="{ThemeResource accent}">
+                    <Grid>
+                        <Rectangle Fill="{ThemeResource SystemAccentColor}" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                        <TextBlock x:Uid="system" Text="跟随系统" Foreground="{ThemeResource txt}" FontWeight="Bold"/>
+                    </Grid>
+                </RadioButton>
+                <RadioButton GroupName="colora" Margin="5" Height="30" Click="RadioButton_Click" Name="orange" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="Orange" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colora" Margin="5" Height="30" Click="RadioButton_Click" Name="green" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="Green" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colora" Margin="5"  Click="RadioButton_Click" Name="custom" IsChecked="True" Foreground="{ThemeResource accent}">
+                    <Grid>
+                        <TextBlock x:Uid="custom" Text="自定义" Foreground="{ThemeResource txt}"/>
+                        <TextBox Width="100" x:Name="coloratxt" LostFocus="txt_LostFocus"/>
+                    </Grid>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock x:Uid="chooseBackground" FontSize="20" Text="背景色" 
+                           Margin="5" x:Name="chooseb" Foreground="{ThemeResource txt}"/>
+                <RadioButton GroupName="colorb" Margin="5" Height="30" Click="RadioButton_Click" Name="light" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="White" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colorb" Margin="5" Height="30" Click="RadioButton_Click" Name="dark" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="Gray" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colorb" Margin="5" Click="RadioButton_Click" Name="custom2" IsChecked="True" Foreground="{ThemeResource accent}">
+                    <Grid>
+                        <TextBlock x:Uid="custom"  Text="自定义" Foreground="{ThemeResource txt}"/>
+                        <TextBox Width="100" x:Name="colorbtxt" LostFocus="txt_LostFocus"/>
+                    </Grid>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock FontSize="20" Text="文字颜色" x:Uid="txtcolor"
+                           Margin="5" x:Name="choosec" Foreground="{ThemeResource txt}"/>
+                <RadioButton GroupName="colorc" Margin="5" Height="30" Click="RadioButton_Click" Name="white" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="White" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colorc" Margin="5" Height="30" Click="RadioButton_Click" Name="black" Foreground="{ThemeResource accent}">
+                    <Rectangle Fill="Black" Width="100" Height="30" Stroke="{ThemeResource txt}"/>
+                </RadioButton>
+                <RadioButton GroupName="colorc" Margin="5" Click="RadioButton_Click" Name="custom3" IsChecked="True" Foreground="{ThemeResource accent}">
+                    <Grid>
+                        <TextBlock x:Uid="custom" Text="自定义" Foreground="{ThemeResource txt}"/>
+                        <TextBox Width="100" x:Name="colorctxt" LostFocus="txt_LostFocus"/>
+                    </Grid>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+
+</Page>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -68,7 +69,8 @@ namespace _2048_UWP
                 default: TileText.Text = number.ToString(); TileText.Foreground = new SolidColorBrush(Colors.White); break;
             }
         }
-        public void Appera() { appera.Begin(); }
+        public void SetCenterXY(double x, double y) { scl1.CenterX = x; scl1.CenterY = y; }
+        public void Appera() { Debug.WriteLine("Appear;"); appera.Begin(); }
         public void Zoom() { zoom.Begin(); }
     }
 }

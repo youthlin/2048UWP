@@ -1,4 +1,7 @@
 ﻿# 2048UWP
+
+2048 is a single-player sliding block puzzle game designed by Italian web developer Gabriele Cirulli. The game's objective is to slide numbered tiles on a grid to combine them to create a tile with the number 2048
+
 2048 UWP : Play the game "2048" at your Windows 10 devices.  
 2048 UWP ：在所有WIndows 10设备上玩2048小游戏。  
 
@@ -8,7 +11,7 @@ Download : https://www.microsoft.com/zh-cn/store/games/2048-uwp/9nblggh68bb0 .
 玩法：
 滑动屏幕或使用键盘移动数字以使相同的数字相加，目标是使2048出现。（当然之后还可以继续）.  
 How to play:
-swipe screen or use your keyboard (<LEFT><RIGHT><UP><DOWN> or WSAD or hjkl) to move the number block to add the same number.  Your goal is make it up to 2048.  Enjoy it!  
+Swipe the screen or use your keyboard using the following keys "<LEFT><RIGHT><UP><DOWN> or WSAD or hjkl" to move the number block to add the same number.  Your goal is make it up to 2048.  Enjoy it!  
 
 
 2015-11-19-------------------------
